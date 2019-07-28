@@ -21,7 +21,7 @@ $(function() {
         $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
 
         Email.send({
-            SecureToken : "2d5b3443-2502-4aa0-92f0-1b7da5c416b1",
+            SecureToken : "14d9a8d4-fb0a-4848-9563-449e2428ecad",
             To : 'contact@devhead.net',
             From : email,
             Subject : "Website Creation: " + name,
