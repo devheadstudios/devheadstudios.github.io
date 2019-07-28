@@ -22,7 +22,7 @@ $(function() {
 
         Email.send({
             SecureToken : "2d5b3443-2502-4aa0-92f0-1b7da5c416b1",
-            To : 'info@devhead.net',
+            To : 'contact@devhead.net',
             From : email,
             Subject : "Website Creation: " + name,
             Body : "Name: " + name + "\r\nEmail: " + email + "\r\nPhone: " + phone + "\r\nMessage:\r\n" + message 
