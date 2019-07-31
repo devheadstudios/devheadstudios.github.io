@@ -507,17 +507,30 @@
         <div class='Chat__holder'>
           <div class='Chat__body'></div>
         </div>
-        <script src="https://assistant-chat-eu-gb.watsonplatform.net/web/chat/ibm.chat.0.0.4.js"></script>
+        <script src="https://assistant-web.watsonplatform.net/loadWWX.js"></script>
         <script>
-          const config = {
-            bot_image: 'https://devhead.net/img/team/4.jpg',
-            bot_name: 'Chat',
+          var hostElement = document.querySelector('.Chat__body');
+
+          var loadingElement = document.querySelector('.bx--loading');
+          window.loadWWX({
             debug: true,
-            element: document.querySelector('.Chat__body'),
-            integration_id: '52ac42fe-e2db-4acd-abd6-9487b986918d',
-            post_url: 'https://assistant-chat-eu-gb.watsonplatform.net/public/message/'
-          };
-          const chat = new WatsonChat(config);
+            element: hostElement,
+            integrationID: '52ac42fe-e2db-4acd-abd6-9487b986918d',
+            showLauncher: false,
+            openChatByDefault: true,
+            region: 'eu-gb',
+            __ibm__: {
+              cdnEndpoint: 'https://assistant-web.watsonplatform.net',
+              postURL: 'https://assistant-chat-eu-gb.watsonplatform.net/public/message/',
+              isPreviewLink: true,
+              history: ''
+            }
+          }).then(function (instance) {
+            window.instance = instance;
+            loadingElement.parentNode.removeChild(loadingElement);
+            hostElement.classList.remove('Chat__body--loading');
+            hostElement.classList.add('Chat__body--background');
+          });
         </script>
       </div>
     </section>
