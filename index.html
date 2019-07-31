@@ -513,11 +513,11 @@
 
           var loadingElement = document.querySelector('.bx--loading');
           window.loadWWX({
-            debug: true,
+            debug: false,
             element: hostElement,
             integrationID: '52ac42fe-e2db-4acd-abd6-9487b986918d',
             showLauncher: false,
-            openChatByDefault: true,
+            openChatByDefault: false,
             region: 'eu-gb',
             __ibm__: {
               cdnEndpoint: 'https://assistant-web.watsonplatform.net',
@@ -530,6 +530,7 @@
             loadingElement.parentNode.removeChild(loadingElement);
             hostElement.classList.remove('Chat__body--loading');
             hostElement.classList.add('Chat__body--background');
+            document.querySelector('.WatsonWebExperienceContainer').shadowRoot.querySelector('.WWX__header-name').innerText = 'Chat';
           });
         </script>
       </div>
