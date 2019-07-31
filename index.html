@@ -530,7 +530,6 @@
             loadingElement.parentNode.removeChild(loadingElement);
             hostElement.classList.remove('Chat__body--loading');
             hostElement.classList.add('Chat__body--background');
-            document.querySelector('.WatsonWebExperienceContainer').shadowRoot.querySelector('.WWX__header-name').innerText = 'Chat';
           });
         </script>
       </div>
@@ -845,6 +844,10 @@
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
     <script src="js/smtp.min.js"></script>
+
+    <script>
+      setTimeout(function() { document.querySelector('.WatsonWebExperienceContainer').shadowRoot.querySelector('.WWX__header-name').innerText = 'Chat'; }, 500);
+    </script>
 
   </body>
 
