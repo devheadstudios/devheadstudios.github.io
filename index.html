@@ -135,7 +135,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-sm-6 portfolio-item">
+          <div class="col-md-12 col-sm-12 portfolio-item">
             <div class="portfolio-caption">
               <h4>Market House</h4>
               <p class="text-muted">Bar/Club</p>
@@ -146,10 +146,10 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-thumbnail" src="img/portfolio/07-thumbnail.jpg" alt="">
+              <img class="img-thumbnail" src="img/portfolio/markethouse.png" alt="">
             </a>
           </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
+          <!--<div class="col-md-4 col-sm-6 portfolio-item">
             <div class="portfolio-caption">
               <h4>TITLE</h4>
               <p class="text-muted">SUBTITLE</p>
@@ -162,63 +162,7 @@
               </div>
               <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
             </a>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <div class="portfolio-caption">
-              <h4>TITLE</h4>
-              <p class="text-muted">SUBTITLE</p>
-            </div> 
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <div class="portfolio-caption">
-              <h4>TITLE</h4>
-              <p class="text-muted">SUBTITLE</p>
-            </div>
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <div class="portfolio-caption">
-              <h4>TITLE</h4>
-              <p class="text-muted">SUBTITLE</p>
-            </div>
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-4 col-sm-6 portfolio-item">
-            <div class="portfolio-caption">
-              <h4>TITLE</h4>
-              <p class="text-muted">SUBTITLE</p>
-            </div>
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-            </a>
-          </div>
+          </div>-->
         </div>
       </div>
     </section>
@@ -317,7 +261,7 @@
           <!--<div class="col-sm-4">
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-              <h4>Kay Garland</h4>
+              <h4></h4>
               <p class="text-muted">Lead Designer</p>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
@@ -507,29 +451,29 @@
         <div class='Chat__holder'>
           <div class='Chat__body'></div>
         </div>
-        <script src="https://assistant-web.watsonplatform.net/loadWWX.js"></script>
+        <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js" onerror="scriptLoadError()"></script>
         <script>
-          var hostElement = document.querySelector('.Chat__body');
-
-          var loadingElement = document.querySelector('.bx--loading');
-          window.loadWWX({
-            debug: false,
+          const hostElement = document.querySelector('.Chat__body');
+          window.loadWatsonAssistantChat({
+            debug: true,
             element: hostElement,
             integrationID: '52ac42fe-e2db-4acd-abd6-9487b986918d',
             showLauncher: false,
-            openChatByDefault: false,
+            openChatByDefault: true,
             region: 'eu-gb',
+            subscriptionID: 'public',
             __ibm__: {
-              cdnEndpoint: 'https://assistant-web.watsonplatform.net',
-              postURL: 'https://assistant-chat-eu-gb.watsonplatform.net/public/message/',
-              isPreviewLink: true,
-              history: ''
+              cdnEndpoint: 'https://web-chat.global.assistant.watson.cloud.ibm.com',
+              versionsURL: 'https://web-chat.global.assistant.watson.cloud.ibm.com/versions.json',
+              isPreviewLink: true
             }
           }).then(function (instance) {
             window.instance = instance;
-            loadingElement.parentNode.removeChild(loadingElement);
-            hostElement.classList.remove('Chat__body--loading');
-            hostElement.classList.add('Chat__body--background');
+            removeLoader();
+            instance.render();
+          }).catch(function (error) {
+            console.error('An error occurred while attempting to create the widget.', error)
+            scriptLoadError();
           });
         </script>
       </div>
@@ -604,7 +548,7 @@
                   <h2 class="text-uppercase">Market House Brixton</h2>
                   <p class="item-intro text-muted">A Bar/Club in Brixton, London</p>
                   <a href="https://market-house.co.uk" target="_blank">
-                    <img class="img-fluid d-block mx-auto" src="img/portfolio/07-full.jpg" alt="">
+                    <img class="img-fluid d-block mx-auto" src="img/portfolio/markethouse-full.png" alt="">
                   </a>
                   <p>We programmed and designed this website on request.</p>
                   <ul class="list-inline">
